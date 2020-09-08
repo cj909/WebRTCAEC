@@ -37,10 +37,10 @@ typedef struct
     int16_t echoMode; // 0, 1, 2, 3 (default), 4
 } AecmConfig;
 
-#if (__linux__)
-#define EXPORTDLL __attribute__((visibility("default")))
+#if (_WIN32)
+	#define EXPORTDLL __declspec(dllexport)
 #else
-#define EXPORTDLL __declspec(dllexport)
+	#define EXPORTDLL __attribute__((visibility("default")))
 #endif
 
 #ifdef __cplusplus
